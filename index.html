@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قوانين شؤون الإسعاف</title>
+  <style>
+    body {
+      font-family: "Tahoma", sans-serif;
+      background-color: #f2f2f2;
+      color: #333;
+      line-height: 1.8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #910000;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #eee;
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #910000;
+      font-weight: bold;
+    }
+    main {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #910000;
+    }
+    ul {
+      list-style-type: square;
+      padding-right: 20px;
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #eee;
+      margin-top: 30px;
+    }
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    input[type="submit"] {
+      background-color: #910000;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>قوانين قسم الشؤون</h1>
+  </header>
+
+  <nav>
+    <a href="#rules">القوانين</a>
+    <a href="#complaint">نموذج شكوى</a>
+    <a href="#promotion">طلب ترقية</a>
+  </nav>
+
+  <main>
+    <section id="rules">
+      <h2>1. السرية التامة</h2>
+      <ul>
+        <li>منع تسريب أي بيانات أو معلومات خاصة بالمسعفين.</li>
+        <li>الفصل الفوري في حال مخالفة ذلك.</li>
+      </ul>
+
+      <h2>2. الحيادية والعدالة</h2>
+      <ul>
+        <li>التعامل العادل مع جميع الموظفين.</li>
+        <li>رفض أي تحيز أو تمييز شخصي.</li>
+      </ul>
+
+      <h2>3. التوثيق الكامل</h2>
+      <ul>
+        <li>تسجيل كل إجراء إداري أو إنذار في ملف الموظف.</li>
+        <li>منع إصدار عقوبات غير موثقة.</li>
+      </ul>
+
+      <h2>4. الرد على الشكاوى</h2>
+      <ul>
+        <li>الرد بأسرع وقت ممكن على أي شكوى.</li>
+        <li>المحاسبة عند الإهمال في الرد.</li>
+      </ul>
+
+      <h2>5. متابعة الأداء</h2>
+      <ul>
+        <li>مراجعة تقارير الحضور والإنجازات دورياً.</li>
+        <li>رفع تقرير أداء لكل مسعف كل أسبوعين.</li>
+      </ul>
+
+      <h2>6. اللباقة في التعامل</h2>
+      <ul>
+        <li>الاحترام المتبادل وعدم استخدام لهجة فوقية.</li>
+      </ul>
+
+      <h2>7. الترقيات والعقوبات</h2>
+      <ul>
+        <li>اتباع الجدول الزمني المعتمد للترقيات.</li>
+      </ul>
+
+      <h2>8. التواجد والمتابعة</h2>
+      <ul>
+        <li>الغياب غير المبرر يعرض الموظف للمساءلة.</li>
+      </ul>
+
+      <h2>9. الإشراف الداخلي</h2>
+      <ul>
+        <li>رفع تقييم شهري للأداء.</li>
+      </ul>
+    </section>
+
+    <section id="complaint">
+      <h2>نموذج تقديم شكوى</h2>
+      <form>
+        <label>الاسم الكامل:</label>
+        <input type="text" name="name" placeholder="مثال: محمد العتيبي">
+
+        <label>الرتبة:</label>
+        <input type="text" name="rank" placeholder="مثال: مسعف أول">
+
+        <label>الشكوى ضد:</label>
+        <input type="text" name="against" placeholder="اسم الشخص أو القسم">
+
+        <label>تفاصيل الشكوى:</label>
+        <textarea name="details" rows="5" placeholder="اكتب التفاصيل هنا..."></textarea>
+
+        <input type="submit" value="إرسال الشكوى">
+      </form>
+    </section>
+
+    <section id="promotion">
+      <h2>طلب ترقية</h2>
+      <form>
+        <label>الاسم الكامل:</label>
+        <input type="text" name="name" placeholder="مثال: فهد القحطاني">
+
+        <label>الرتبة الحالية:</label>
+        <input type="text" name="current_rank" placeholder="مثال: مسعف ثاني">
+
+        <label>مدة خدمتك:</label>
+        <input type="text" name="duration" placeholder="مثال: 3 أشهر">
+
+        <label>سبب طلب الترقية:</label>
+        <textarea name="reason" rows="5" placeholder="اذكر إنجازاتك وأسباب طلبك للترقية"></textarea>
+
+        <input type="submit" value="إرسال الطلب">
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 قسم الشؤون
+  </footer>
+</body>
+</html>
