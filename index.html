@@ -1,133 +1,267 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>قوانين قسم الشؤون</title>
+  <title>شؤون المسعفين</title>
   <style>
     body {
-      font-family: "Tahoma", sans-serif;
-      background: url('https://sdmntpreastus.oaiusercontent.com/files/00000000-090c-61f9-b749-60e382abda53/raw?se=2025-06-23T16%3A57%3A39Z&sp=r&sv=2024-08-04&sr=b&scid=74e0ea5d-057b-50b4-8e19-ae54fce4beb3&skoid=c953efd6-2ae8-41b4-a6d6-34b1475ac07c&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-23T15%3A17%3A57Z&ske=2025-06-24T15%3A17%3A57Z&sks=b&skv=2024-08-04&sig=Hfb4FHiM9DKwnP1pJ375bXHro74uSUrwMF4DgaiE5OE%3D') no-repeat center center fixed;
-      background-size: cover;
-      color: #333;
-      line-height: 1.8;
       margin: 0;
-      padding: 0;
+      background-color: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      direction: rtl;
     }
-    main {
-      background-color: rgba(255,255,255,0.9);
-      padding: 30px;
+    .header {
+      background-color: #000;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .header img.logo-circle {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+    .hero {
+      position: relative;
+      background: url('https://www.fireapparatusmagazine.com/wp-content/uploads/2022/11/First-Responder_EMT.jpg') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      color: white;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 15px 30px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      z-index: 2;
+    }
+    .hero-overlay img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .hero-overlay h1 {
+      margin: 0;
+      font-size: 28px;
+      font-weight: bold;
+    }
+    .hero h2 {
+      position: relative;
+      z-index: 1;
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 700px;
+      font-size: 18px;
+      margin: 0 auto;
+    }
+    .section {
+      padding: 0 30px 30px;
       max-width: 900px;
       margin: auto;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    header {
-      background-color: rgba(145,0,0,0.9);
+    .tabs {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .tab-btn {
+      background-color: transparent;
       color: white;
+      padding: 10px 25px;
+      border: 2px solid #e03b3b;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 8px;
+      min-width: 200px;
+      justify-content: center;
+    }
+    .tab-btn:hover {
+      background-color: #e03b3b;
+      color: white;
+    }
+    .content-block {
+      background-color: #1e1e1e;
       padding: 20px;
-      text-align: center;
-      border-radius: 0 0 10px 10px;
+      border-radius: 10px;
+      margin-top: 20px;
+      display: none;
     }
-    nav {
-      background-color: rgba(238,238,238,0.9);
-      text-align: center;
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    table, th, td {
+      border: 1px solid #555;
+    }
+    th, td {
       padding: 10px;
-      border-radius: 10px;
-      margin: 20px auto;
-      max-width: 900px;
+      text-align: right;
     }
-    nav a {
-      margin: 0 10px;
-      text-decoration: none;
-      color: #910000;
-      font-weight: bold;
-      cursor: default;
-    }
-    h2 {
-      color: #910000;
-    }
-    ul {
-      list-style-type: square;
-      padding-right: 20px;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background-color: rgba(238,238,238,0.9);
-      margin-top: 30px;
-      border-radius: 10px;
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
+    th {
+      background-color: #333;
+      color: #f0c040;
     }
   </style>
+  <script>
+    function toggleContent(id) {
+      const allContents = document.querySelectorAll('.content-block');
+      allContents.forEach(c => {
+        if(c.id === id) {
+          c.style.display = (c.style.display === 'block') ? 'none' : 'block';
+        } else {
+          c.style.display = 'none';
+        }
+      });
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <h1>قوانين قسم الشؤون</h1>
-  </header>
+  <div class="header">
+    <img src="https://media.discordapp.net/attachments/1263817033309622283/1386708789658652812/aea0f75b178e0d0b1a946ac0ed713693.png?ex=685ab0b3&is=68595f33&hm=93d786c7df8a79a202b92cdabbf50e2534168a3d8bc81eaff88d7c2e703229e2&=&format=webp&quality=lossless" class="logo-circle" />
+  </div>
 
-  <nav>
-    <a>القوانين</a>
-  </nav>
+  <div class="hero">
+    <div class="hero-overlay">
+      <img src="https://media.discordapp.net/attachments/1263817033309622283/1386708789658652812/aea0f75b178e0d0b1a946ac0ed713693.png?ex=685ab0b3&is=68595f33&hm=93d786c7df8a79a202b92cdabbf50e2534168a3d8bc81eaff88d7c2e703229e2&=&format=webp&quality=lossless" alt="شعار" />
+      <h1>SAMS AFFAIRS</h1>
+    </div>
+    <h2>نحن في شؤون المسعفين نعمل على دعم وتمكين المسعفين وفرق الطوارئ من خلال تقديم محتوى تدريبي متخصص، ومتابعة المستجدات الميدانية والتنظيمية في مجال الخدمات الإسعافية، بهدف الارتقاء بالمهنة وتعزيز الجاهزية والاحترافية في بيئة العمل.</h2>
+  </div>
 
-  <main>
-    <section id="rules">
-      <h2>1. السرية التامة</h2>
-      <ul>
-        <li>منع تسريب أي بيانات أو معلومات خاصة بالمسعفين.</li>
-        <li>الفصل الفوري في حال مخالفة ذلك.</li>
-      </ul>
+  <div class="section">
+    <div class="tabs">
+      <button class="tab-btn" onclick="toggleContent('rules-content')">
+        ⭐
+        قوانين الشؤون
+      </button>
+      <button class="tab-btn" onclick="toggleContent('ranks-content')">
+        ⭐
+        تسلسل رتب شؤون
+      </button>
+      <button class="tab-btn" onclick="toggleContent('responsibilities-content')">
+        ⭐
+        مسؤوليات شؤون الإسعاف
+      </button>
+      <button class="tab-btn" onclick="toggleContent('points-system-content')">
+        ⭐
+        نظام النقاط
+      </button>
+    </div>
 
-      <h2>2. الحيادية والعدالة</h2>
-      <ul>
-        <li>التعامل العادل مع جميع الموظفين.</li>
-        <li>رفض أي تحيز أو تمييز شخصي.</li>
-      </ul>
+    <div class="content-block" id="rules-content">
+      <h3>📜 قوانين الشؤون:</h3>
+      <p><strong>1. السرية التامة:</strong> منع تسريب أي بيانات أو معلومات خاصة بالمسعفين. الفصل الفوري في حال مخالفة ذلك.</p>
+      <p><strong>2. الحيادية والعدالة:</strong> التعامل العادل مع جميع الموظفين. رفض أي تحيز أو تمييز شخصي.</p>
+      <p><strong>3. التوثيق الكامل:</strong> تسجيل كل إجراء إداري أو إنذار في ملف الموظف. منع إصدار عقوبات غير موثقة.</p>
+      <p><strong>4. الرد على الشكاوى:</strong> الرد بأسرع وقت ممكن على أي شكوى. المحاسبة عند الإهمال في الرد.</p>
+      <p><strong>5. متابعة الأداء:</strong> مراجعة تقارير الحضور والإنجازات دورياً. رفع تقرير أداء لكل مسعف كل أسبوعين.</p>
+      <p><strong>6. اللباقة في التعامل:</strong> الاحترام المتبادل وعدم استخدام لهجة فوقية.</p>
+      <p><strong>7. الترقيات والعقوبات:</strong> اتباع الجدول الزمني المعتمد للترقيات.</p>
+      <p><strong>8. التواجد والمتابعة:</strong> الغياب غير المبرر يعرض الموظف للمساءلة.</p>
+      <p><strong>9. الإشراف الداخلي:</strong> رفع تقييم شهري للأداء.</p>
+      <p><strong>10. المسؤولية الفردية:</strong> لكل عضو شؤون مسؤولية ملزم بها وعليه إتمامها.</p>
+      <p style="color: red; font-weight: bold; margin-top: 20px;">⚠️ القوانين قابلة للتغيير والتحديث في أي وقت دون إشعار مسبق.</p>
+    </div>
 
-      <h2>3. التوثيق الكامل</h2>
-      <ul>
-        <li>تسجيل كل إجراء إداري أو إنذار في ملف الموظف.</li>
-        <li>منع إصدار عقوبات غير موثقة.</li>
-      </ul>
+    <div class="content-block" id="ranks-content">
+      <h3>📌 تسلسل رتب شؤون:</h3>
+      <table>
+        <tr><th>الرتبة</th><th>الوصف</th></tr>
+        <tr><td>رئيس شؤون الإسعاف (Head of Internal Affairs)</td><td>🔸 القائد الأعلى للإدارة، يضع السياسات ويتخذ القرارات العليا.</td></tr>
+        <tr><td>نائب الرئيس (Deputy Head of Internal Affairs)</td><td>🔸 يدير الشؤون اليومية ويمثل الإدارة عند غياب الرئيس.</td></tr>
+        <tr><td>الإدارة الداخلية (Internal Affairs Management)</td><td>🔸 يشرفون على سير العمل، والتدريب، والتقييمات الدورية للمسعفين.</td></tr>
+        <tr><td>𝐒𝐀𝐌𝐒 𝐀𝐟𝐟𝐚𝐢𝐫𝐬 موضف شؤون طبيعي</td><td>🔹 عضو مسؤول عن متابعة وتنسيق المهام اليومية لشؤون المسعفين، وضمان تنفيذ الإجراءات الإدارية.</td></tr>
+      </table>
+    </div>
 
-      <h2>4. الرد على الشكاوى</h2>
-      <ul>
-        <li>الرد بأسرع وقت ممكن على أي شكوى.</li>
-        <li>المحاسبة عند الإهمال في الرد.</li>
-      </ul>
+    <div class="content-block" id="responsibilities-content">
+      <h3>📋 مسؤوليات شؤون الإسعاف:</h3>
+      <table>
+        <tr><th>القسم</th><th>المهام</th></tr>
+        <tr><td>الموارد البشرية (HR)</td><td>
+          1. تسجيل المسعفين في الجدول الرئيسي.<br/>
+          متابعة جداول الدوام اليومية والأسبوعية.
+        </td></tr>
+        <tr><td>النقاط والتقييم</td><td>
+          1. إضافة نقاط الأداء للمسعفين في الجدول.<br/>
+          2. تقييم أداء الأفراد حسب اللوقات والمشاركات.<br/>
+          3. مراقبة ومراجعة النقاط بشكل دوري لضمان العدل.
+        </td></tr>
+        <tr><td>الإعتمادات والقرارات الإدارية</td><td>
+          1. اعتماد القرارات الإدارية الصادرة (تعيين، ترقية، تعميم).<br/>
+          2. متابعة تنفيذ القرارات والتأكد من تطبيقها داخل الجدول والملفات.
+        </td></tr>
+        <tr><td>المحاكم والاستدعاءات</td><td>
+          1. استقبال ومراجعة التيكتات الرسمية من الأعضاء.<br/>
+          2. الإشراف على المحكمة الداخلية لشؤون الاستفسارات والمخالفات.
+        </td></tr>
+        <tr><td>مراقبة اللوقات</td><td>
+          1. مراقبة اللوقات اليومية للمسعفين.<br/>
+          2. التأكد من التزام الأعضاء بساعات العمل والمشاركة الميدانية.<br/>
+          3. رفع تنبيهات أو تقارير في حال وجود تجاوزات.
+        </td></tr>
+        <tr><td>الإجازات المطولة</td><td>
+          1. اعتماد الإجازات الطويلة بعد مراجعة الحالة.<br/>
+          2. تنظيم طلبات الإجازات الاعتيادية والمطوّلة.
+        </td></tr>
+      </table>
+    </div>
 
-      <h2>5. متابعة الأداء</h2>
-      <ul>
-        <li>مراجعة تقارير الحضور والإنجازات دورياً.</li>
-        <li>رفع تقرير أداء لكل مسعف كل أسبوعين.</li>
-      </ul>
-
-      <h2>6. اللباقة في التعامل</h2>
-      <ul>
-        <li>الاحترام المتبادل وعدم استخدام لهجة فوقية.</li>
-      </ul>
-
-      <h2>7. الترقيات والعقوبات</h2>
-      <ul>
-        <li>اتباع الجدول الزمني المعتمد للترقيات.</li>
-      </ul>
-
-      <h2>8. التواجد والمتابعة</h2>
-      <ul>
-        <li>الغياب غير المبرر يعرض الموظف للمساءلة.</li>
-      </ul>
-
-      <h2>9. الإشراف الداخلي</h2>
-      <ul>
-        <li>رفع تقييم شهري للأداء.</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    &copy; 2025 قسم الشؤون
-  </footer>
+    <div class="content-block" id="points-system-content">
+      <h3>📊 نظام النقاط:</h3>
+      <p>نظام النقاط هو أداة تقييم أداء المسعفين من خلال تسجيل النقاط على أساس الحضور، المشاركة في المهام، جودة العمل، والتزام التعليمات.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>الجزء</th>
+            <th>الوصف</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>المشاركة في المهمات</td>
+            <td>زيادة نقاط التقييم بناءً على الفعالية في المهمات</td>
+          </tr>
+          <tr>
+            <td>الالتزام بالتعليمات والنظام</td>
+            <td>تعزيز نقاط الأداء بسبب الالتزام والانضباط</td>
+          </tr>
+          <tr>
+            <td>إكمال المهام الموكلة</td>
+            <td>زيادة نقاط إيجابية عند إنجاز المهام المكلفة لك</td>
+          </tr>
+          <tr>
+            <td>التقارير الأسبوعية</td>
+            <td>توضيح توزيع النقاط لكل مسعف بشكل منتظم</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
